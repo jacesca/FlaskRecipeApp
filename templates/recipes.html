@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block head %}
+    <title>All Recipes</title>
+{% endblock %}
+{% block body %}
+    <h1>All Recipes</h1>
+    <a href="/recipes/new" class="btn btn-success float-right">New recipe</a>
+    <hr>
+
+    {% for recipe in recipes %}
+        <small>
+            Written by 
+            {% if recipe.author %} {{ recipe.author }} {% else %} <i>unknown</i> {% endif %}
+            on {{ recipe.data_posted.strftime('%b %d, %Y') }}
+        </small>
+        <h2>{{ recipe.title }}</h2>
+        <p style="white-space: pre-wrap;">{{  recipe.description }}</p>
+        
+        <a href="/recipes/delete/{{ recipe.id }}" class="btn btn-danger">Delete</a>
+        <a href="/recipes/edit/{{ recipe.id }}" class="btn btn-primary">Edit</a><br><br>
+    {% endfor %}
+{% endblock %}

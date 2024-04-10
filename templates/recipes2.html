@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block head %}
+    <title>All Recipes</title>
+{% endblock %}
+{% block body %}
+    <h1>All Recipes</h1>
+    
+    <hr>
+    <h2>Create New Recipe:</h2>
+    <form action="/recipes" method="Post">        
+        Title: <input type="text" name="title" id="title"><br>
+        Recipe: <input type="text" name="description" id="description"><br>  
+        Author: <input type="text" name="author" id="author"><br>   
+        <input type="submit" value="Post">
+    </form>
+    <hr>
+
+    {% for recipe in recipes %}
+        <h2>{{ recipe.title }}</h2>
+        <p>{{  recipe.description }}</p>
+        <h3>
+            {% if recipe.author %}
+                By {{ recipe.author }}
+            {% else %}
+                N/A
+            {% endif %}
+        </h3>
+        <a href="/recipes/delete/{{ recipe.id }}">Delete</a>
+        <a href="/recipes/edit/{{ recipe.id }}">Edit</a>
+    {% endfor %}
+{% endblock %}

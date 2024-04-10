@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Editing</title>
+{% endblock %}
+{% block body %}
+    <h2>Edit Recipe No. {{ recipe.id }}</h2>
+    <form action="/recipes/edit/{{ recipe.id }}" method="Post">        
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" id="title" value="{{ recipe.title }}">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Recipe details</label>
+            <textarea class="form-control" name="description" id="description" rows="3">{{ recipe.description }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <input type="text" class="form-control" name="author" id="author" value="{{ recipe.author }}">
+        </div>   
+        <input type="submit" class="btn btn-success" value="Save">
+        <a href="/recipes" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}

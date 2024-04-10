@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block head %}
+    <title>All Recipes</title>
+{% endblock %}
+{% block body %}
+    <h2>Create New Recipe:</h2>
+    <form action="/recipes/new" method="Post">        
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" id="title" placeholder="Enter the recipe name.">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Recipe details</label>
+            <textarea class="form-control" name="description" id="description" rows="3" placeholder="Enter the recipe details..."></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <input type="text" class="form-control" name="author" id="author" placeholder="Enter the recipe author.">
+        </div>   
+        <input type="submit" class="btn btn-success" value="Post">
+    </form>
+{% endblock %}

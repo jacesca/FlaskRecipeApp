@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block head %}
+    <title>All Recipes</title>
+{% endblock %}
+{% block body %}
+    <h1>All Recipes</h1>
+    
+    {% for recipe in recipes %}
+        <h2>{{ recipe.title }}</h2>
+        <p>{{  recipe.description }}</p>
+        <h3>
+            {% if recipe.author %}
+                {{ recipe.author }}
+            {% else %}
+                N/A
+            {% endif %}
+        </h3>
+    {% endfor %}
+{% endblock %}

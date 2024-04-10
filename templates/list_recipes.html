@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block head %}
+    <title>All Recipes</title>
+{% endblock %}
+{% block body %}
+    <h1>All Recipes</h1>
+    
+    <hr>
+    <h2>Create New Recipe:</h2>
+    <form action="/recipes" method="Post">        
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" id="title" placeholder="Enter the recipe name.">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Recipe details</label>
+            <textarea class="form-control" name="description" id="description" rows="3" placeholder="Enter the recipe details..."></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <input type="text" class="form-control" name="author" id="author" placeholder="Enter the recipe author.">
+        </div>   
+        <input type="submit" value="Post">
+    </form>
+    <hr>
+
+    {% for recipe in recipes %}
+        <small>
+            Written by 
+            {% if recipe.author %} {{ recipe.author }} {% else %} <i>unknown</i> {% endif %}
+            on {{ recipe.data_posted.strftime('%b %d, %Y') }}
+        </small>
+        <h2>{{ recipe.title }}</h2>
+        <p style="white-space: pre-wrap;">{{  recipe.description }}</p>
+        
+        <a href="/recipes/delete/{{ recipe.id }}" class="btn btn-danger">Delete</a>
+        <a href="/recipes/edit/{{ recipe.id }}" class="btn btn-primary">Edit</a><br><br>
+    {% endfor %}
+{% endblock %}
