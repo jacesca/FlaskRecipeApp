@@ -139,6 +139,7 @@
 > exit()
 
 ## Other material
+- [Flask Documentation](https://flask.palletsprojects.com/en/2.3.x/)
 - [Visual Studio Code Set Up for Python Projects](https://codefinity.com/blog/Visual-Studio-Code-Set-Up-for-Python-Projects)
 - [Build fast, responsive sites with Bootstrap](https://getbootstrap.com/)
 - [Get started with Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start)
