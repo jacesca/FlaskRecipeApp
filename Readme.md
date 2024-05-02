@@ -12,6 +12,9 @@
 > conda list -e >> requirements.txt
 > conda env export > flask_env.yml
 
+## To run the application
+> flask run
+
 ## Starting the application
 > python main.py
 

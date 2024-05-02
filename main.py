@@ -67,7 +67,7 @@ def recipes_all_together():
     else:
         all_recipes = Recipe.query.all()
         return render_template('list_recipes.html', recipes=all_recipes)
-    
+
 
 @app.route('/recipes', methods=['GET', 'POST'])
 def recipes():
